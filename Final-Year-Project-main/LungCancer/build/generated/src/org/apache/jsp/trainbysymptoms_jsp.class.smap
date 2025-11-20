@@ -1,0 +1,21 @@
+SMAP
+trainbysymptoms_jsp.java
+JSP
+*S JSP
+*F
++ 0 header.jsp
+header.jsp
++ 1 trainbysymptoms.jsp
+trainbysymptoms.jsp
++ 2 admin_slider.jsp
+admin_slider.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+1,45:51
+1#1,12:96
+1#2,42:108
+12#1,49:150
+1#3,67:199
+60#1,3:266
+*E

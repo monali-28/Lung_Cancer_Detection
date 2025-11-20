@@ -1,0 +1,21 @@
+SMAP
+detection_005fcancerbysymptoms_jsp.java
+JSP
+*S JSP
+*F
++ 0 header.jsp
+header.jsp
++ 1 detection_cancerbysymptoms.jsp
+detection_cancerbysymptoms.jsp
++ 2 user_slider.jsp
+user_slider.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+1,45:51
+1#1,13:96
+1#2,41:109
+13#1,71:150
+1#3,67:221
+83#1,3:288
+*E

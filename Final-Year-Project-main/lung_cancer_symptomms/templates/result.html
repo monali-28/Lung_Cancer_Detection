@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Cancer Risk Assessment Result</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .result-container {
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .result-icon {
+            font-size: 6rem;
+            margin-bottom: 25px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .positive {
+            color: #e74c3c;
+        }
+        
+        .negative {
+            color: #27ae60;
+        }
+        
+        .result-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .result-message {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .recommendations {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            border-left: 4px solid #3498db;
+        }
+        
+        .recommendations h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .recommendations ul {
+            padding-left: 25px;
+        }
+        
+        .recommendations li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+        
+        .btn-try-again {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+        
+        .btn-try-again:hover {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-style: italic;
+            line-height: 1.6;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .result-title {
+                font-size: 2rem;
+            }
+            
+            .result-message {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-lungs"></i> Lung Cancer Risk Assessment</h1>
+            <p>Your Screening Results</p>
+        </div>
+        
+        <div class="result-container">
+            {% if "Positive" in result %}
+            <div class="result-icon positive">
+                <i class="fas fa-exclamation-triangle"></i>
+            </div>
+            <h2 class="result-title positive">Positive for Lung Cancer Risk</h2>
+            <p class="result-message">
+                Our assessment indicates a higher risk of lung cancer based on the information provided. 
+                This result suggests that you may have several risk factors associated with lung cancer.
+            </p>
+            {% else %}
+            <div class="result-icon negative">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="result-title negative">Negative for Lung Cancer Risk</h2>
+            <p class="result-message">
+                Our assessment indicates a lower risk of lung cancer based on the information provided. 
+                This result suggests that you have fewer risk factors associated with lung cancer.
+            </p>
+            {% endif %}
+            
+            <div class="recommendations">
+                <h3><i class="fas fa-stethoscope"></i> Next Steps & Recommendations</h3>
+                <ul>
+                    {% if "Positive" in result %}
+                    <li><strong>Consult a healthcare professional</strong> for a comprehensive evaluation and clinical screening</li>
+                    <li>Consider scheduling a <strong>low-dose CT scan</strong> if you meet screening criteria</li>
+                    <li>Discuss smoking cessation options if you currently smoke</li>
+                    <li>Monitor for symptoms such as persistent cough, chest pain, or shortness of breath</li>
+                    <li>Follow up with your doctor even if you feel healthy</li>
+                    {% else %}
+                    <li>Continue with <strong>regular health check-ups</strong> and screenings as recommended</li>
+                    <li>Maintain a <strong>healthy lifestyle</strong> with balanced diet and regular exercise</li>
+                    <li>Avoid tobacco products and limit exposure to environmental pollutants</li>
+                    <li>Be aware of lung cancer symptoms and seek medical advice if any develop</li>
+                    <li>Consider periodic risk assessments, especially if your health status changes</li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <a href="/" class="btn-try-again">
+                <i class="fas fa-redo-alt"></i> New Assessment
+            </a>
+            
+            <p class="disclaimer">
+                Note: This assessment is for informational purposes only and does not replace professional medical advice. 
+                Always consult with a qualified healthcare provider for accurate diagnosis and treatment.
+            </p>
+        </div>
+        
+        <div class="footer">
+            <p>© 2025 Lung Cancer Risk Assessment Tool | Early detection saves lives</p>
+        </div>
+    </div>
+</body>
+</html>

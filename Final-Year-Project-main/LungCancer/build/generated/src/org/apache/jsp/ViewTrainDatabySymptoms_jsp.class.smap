@@ -1,0 +1,30 @@
+SMAP
+ViewTrainDatabySymptoms_jsp.java
+JSP
+*S JSP
+*F
++ 0 ViewTrainDatabySymptoms.jsp
+ViewTrainDatabySymptoms.jsp
++ 1 header.jsp
+header.jsp
++ 2 admin_slider.jsp
+admin_slider.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+1,4:54
+1#1,45:57
+4#0,12:102
+1#2,42:114
+15#0,35:156
+56,21:198
+76,2:219
+78,2:221,3
+80,2:227
+82,2:229,3
+84,7:235
+90,3:242
+92,24:245
+1#3,67:269
+115#0,3:336
+*E

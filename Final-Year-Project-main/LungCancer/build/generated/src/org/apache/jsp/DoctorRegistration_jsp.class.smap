@@ -1,0 +1,21 @@
+SMAP
+DoctorRegistration_jsp.java
+JSP
+*S JSP
+*F
++ 0 header.jsp
+header.jsp
++ 1 DoctorRegistration.jsp
+DoctorRegistration.jsp
++ 2 slider.jsp
+slider.jsp
++ 3 footer.jsp
+footer.jsp
+*L
+1,45:51
+1#1,12:96
+1#2,47:108
+12#1,63:155
+1#3,67:218
+74#1,3:285
+*E
